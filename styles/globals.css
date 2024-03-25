@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img {
+    max-height: 100%;
+}
+
+input, textarea, select{
+    @apply border border-gray-200 rounded-md w-full px-4 py-2;
+    @apply shadow-md;
+    @apply mb-2;
+}
+
+textarea.desc {
+    height: 100px;
+}
+
+input:focus, textarea:focus, select:focus{
+    @apply border-blue-900;
+}
+
+h1{
+    @apply text-gray-800 mb-4 text-xl;
+}
+
+h2 {
+    @apply text-gray-800 mt-6 mb-2 text-lg;
+}
+
+label{
+    @apply text-gray-600 text-sm;
+}
+
+.btn-primary{
+    @apply bg-primary text-white px-4 py-1 rounded-md shadow-md;
+}
+
+table.basic{
+    @apply w-full bg-white rounded-md shadow-md;
+}
+
+table.basic thead tr td,
+table.basic thead tr th
+{
+    @apply text-sm text-gray-600 uppercase border-b border-gray-200 px-4 py-2;
+}
+
+table.basic tr td{
+    @apply px-4 py-1;
+}
+
+table.basic a{
+    @apply px-4 py-1 rounded-md inline-flex mx-1 items-center gap-1 text-sm;
+}
+
+.btn-default, .btn-red {
+    @apply px-4 py-1 rounded-md;
+}
+
+.btn-red{
+    @apply bg-red-200 text-red-800 px-4 py-1 rounded-md shadow-md border;
+}
+
+.btn-default{
+    @apply bg-white text-gray-800 px-4 py-1 rounded-md border border-gray-200 shadow-md;
+}
+
+.category-div {
+    width: 85px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.product-div {
+    width: 140px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.address-div {
+    width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.login-btn {
+    width: 350px;
+    height: 85px;
+    gap: 4px;
+    padding: 4px 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: x-large;
+    background-color: lightslategray;
+    border-radius: 1rem;
+}
