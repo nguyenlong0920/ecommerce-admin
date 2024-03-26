@@ -5,8 +5,8 @@ import HomeStats from "@/components/HomeStats";
 export default function Home() {
     return (
         <Layout>
-            {/* <HomeHeader/>
-            <HomeStats/> */}
+            {/* <HomeHeader/> */}
+            <HomeStats/>
         </Layout>
     );
 }
