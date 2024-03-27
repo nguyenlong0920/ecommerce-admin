@@ -2,7 +2,7 @@ import Spinner from "@/components/Spinner";
 import {useEffect, useState} from "react";
 import {subHours, eachDayOfInterval} from "date-fns";
 import axios from "axios";
-import {Bar} from "react-chartjs-2";
+import {Line} from "react-chartjs-2";
 import {LinearScale, CategoryScale, BarElement, LineElement, PointElement, Chart } from "chart.js";
 
 // Register necessary elements and scales
@@ -302,7 +302,7 @@ export default function HomeStats() {
             <h2>Overview</h2>
             <div className="chart-container">
                 <div className="chart-wrapper">
-                    <Bar data={chartData} options={chartOptions} />
+                    <Line data={chartData} options={chartOptions} />
                 </div>
             </div>
         </div>
