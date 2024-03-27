@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {subHours, eachDayOfInterval} from "date-fns";
 import axios from "axios";
 import {Line, Bar} from "react-chartjs-2";
-import {LinearScale, CategoryScale, BarElement, LineElement, PointElement, Chart } from "chart.js";
+import {LinearScale, CategoryScale, BarElement, LineElement, PointElement, Chart } from "chart.js/auto";
 
 // Register necessary elements and scales
 Chart.register(LinearScale, CategoryScale, BarElement, LineElement, PointElement);
@@ -283,7 +283,7 @@ export default function HomeStats() {
             <div className="chart-container">
                 <div className="chart-wrapper">
                     <Bar data={chartData} options={chartOptions} />
-                    <Line data={chartData} options={chartOptions} />
+                    {/* <Line data={chartData} options={chartOptions} /> */}
                 </div>
             </div>
         </div>
