@@ -193,14 +193,14 @@ export default function HomeStats() {
     const chartData = {
         labels: staticOrdersByDay.map(entry => entry.date.getDate()),
         datasets: [
-            // {
-            //     label: "Revenue",
-            //     data: staticOrdersRevenueByDay.map(entry => parseFloat(entry.revenue)),
-            //     borderColor: "rgba(255, 99, 132, 1)",
-            //     backgroundColor: "rgba(255, 99, 132, 0.6)",
-            //     type: "line",
-            //     yAxisID: "revenue",
-            // },
+            {
+                label: "Revenue",
+                data: staticOrdersRevenueByDay.map(entry => parseFloat(entry.revenue)),
+                borderColor: "rgba(255, 99, 132, 1)",
+                backgroundColor: "rgba(255, 99, 132, 0.6)",
+                type: "bar",
+                yAxisID: "revenue",
+            },
             {
                 label: "Number of Orders",
                 data: staticOrdersByDay.map(entry => entry.count),
