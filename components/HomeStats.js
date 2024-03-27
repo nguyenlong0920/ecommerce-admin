@@ -190,25 +190,6 @@ export default function HomeStats() {
     ];
     
     // Replace the dynamic data with static data for testing
-    // const chartData = {
-    //     labels: staticOrdersByDay.map(entry => entry.date.getDate()),
-    //     datasets: [
-    //         {
-    //             label: "Revenue",
-    //             data: staticOrdersRevenueByDay.map(entry => parseFloat(entry.revenue)),
-    //             borderColor: "rgba(255, 99, 132, 1)",
-    //             backgroundColor: "rgba(255, 99, 132, 0.6)",
-    //             type: "line",
-    //             yAxisID: "revenue",
-    //         },
-    //         {
-    //             label: "Number of Orders",
-    //             data: staticOrdersByDay.map(entry => entry.count),
-    //             backgroundColor: "rgba(75, 192, 192, 0.6)",
-    //         },
-    //     ],
-    // };
-
     const chartData = {
         labels: staticOrdersByDay.map(entry => entry.date.getDate()),
         datasets: [
@@ -217,20 +198,61 @@ export default function HomeStats() {
                 data: staticOrdersRevenueByDay.map(entry => parseFloat(entry.revenue)),
                 borderColor: "rgba(255, 99, 132, 1)",
                 backgroundColor: "rgba(255, 99, 132, 0.6)",
-                fill: false, // Add this line to prevent filling area under the line
+                type: "line",
                 yAxisID: "revenue",
-                type: "line"
             },
             {
                 label: "Number of Orders",
                 data: staticOrdersByDay.map(entry => entry.count),
                 backgroundColor: "rgba(75, 192, 192, 0.6)",
-                type: "bar", // Specify the type as bar for the bar chart
             },
         ],
-    };  
+    };
     
+    // const chartOptions = {
+    //     scales: {
+    //         x: {
+    //             grid: {
+    //                 display: false,
+    //             },
+    //         },
+    //         y: {
+    //             beginAtZero: true,
+    //             ticks: {
+    //                 stepSize: 1,
+    //             },
+    //         },
+    //         revenue: {
+    //             position: "right",
+    //             beginAtZero: true,
+    //             grid: {
+    //                 display: false,
+    //             },
+    //             ticks: {
+    //                 callback: function (value, index, values) {
+    //                     return "$" + value;
+    //                 },
+    //             },
+    //         },
+    //     },
+    //     // Add responsive settings
+    //     responsive: true,
+    //     maintainAspectRatio: false,
+    // };
+
     const chartOptions = {
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return context.dataset.label + ': $' + context.formattedValue;
+                    },
+                },
+            },
+        },
         scales: {
             x: {
                 grid: {
@@ -241,6 +263,9 @@ export default function HomeStats() {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 1,
+                    callback: function (value) {
+                        return "$" + value;
+                    },
                 },
             },
             revenue: {
@@ -250,7 +275,7 @@ export default function HomeStats() {
                     display: false,
                 },
                 ticks: {
-                    callback: function (value, index, values) {
+                    callback: function (value) {
                         return "$" + value;
                     },
                 },
@@ -259,7 +284,7 @@ export default function HomeStats() {
         // Add responsive settings
         responsive: true,
         maintainAspectRatio: false,
-    };
+    };  
 
     return (
         <div>
@@ -302,7 +327,7 @@ export default function HomeStats() {
             <h2>Overview</h2>
             <div className="chart-container">
                 <div className="chart-wrapper">
-                    <Line data={chartData} options={chartOptions} />
+                    <Bar data={chartData} options={chartOptions} />
                 </div>
             </div>
         </div>
