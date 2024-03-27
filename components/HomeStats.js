@@ -99,25 +99,6 @@ export default function HomeStats() {
         };
     });
 
-    // const chartData = {
-    //     labels: ordersByDay.map((entry) => entry.date.getDate()),
-    //     datasets: [
-    //         {
-    //             label: "Revenue",
-    //             data: ordersRevenueByDay.map((entry) => entry.revenue),
-    //             borderColor: "rgba(255, 99, 132, 1)",
-    //             backgroundColor: "rgba(255, 99, 132, 0.6)",
-    //             type: "line",
-    //             yAxisID: "revenue",
-    //         },
-    //         {
-    //             label: "Number of Orders",
-    //             data: ordersByDay.map((entry) => entry.count),
-    //             backgroundColor: "rgba(75, 192, 192, 0.6)",
-    //         },
-    //     ],
-    // };
-
     const getDates = (data) => data.map((entry) => entry.date.getDate());
     const getValues = (data, key) => data.map((entry) => entry[key]);
 
@@ -209,12 +190,12 @@ export default function HomeStats() {
                     <div className="tile-desc">{ordersMonth.length} orders this month</div>
                 </div>
             </div>
-            <h2>Overview</h2>
+            {/* <h2>Overview</h2>
             <div className="chart-container">
                 <div className="chart-wrapper">
                     <Bar data={chartData} options={chartOptions} />
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
