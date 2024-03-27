@@ -2,7 +2,7 @@ import Spinner from "@/components/Spinner";
 import {useEffect, useState} from "react";
 import {subHours, eachDayOfInterval} from "date-fns";
 import axios from "axios";
-import {Line} from "react-chartjs-2";
+import {Line, Bar} from "react-chartjs-2";
 import {LinearScale, CategoryScale, BarElement, LineElement, PointElement, Chart } from "chart.js";
 
 // Register necessary elements and scales
