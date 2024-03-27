@@ -205,54 +205,12 @@ export default function HomeStats() {
                 label: "Number of Orders",
                 data: staticOrdersByDay.map(entry => entry.count),
                 backgroundColor: "rgba(75, 192, 192, 0.6)",
+                type: "bar",
             },
         ],
     };
     
-    // const chartOptions = {
-    //     scales: {
-    //         x: {
-    //             grid: {
-    //                 display: false,
-    //             },
-    //         },
-    //         y: {
-    //             beginAtZero: true,
-    //             ticks: {
-    //                 stepSize: 1,
-    //             },
-    //         },
-    //         revenue: {
-    //             position: "right",
-    //             beginAtZero: true,
-    //             grid: {
-    //                 display: false,
-    //             },
-    //             ticks: {
-    //                 callback: function (value, index, values) {
-    //                     return "$" + value;
-    //                 },
-    //             },
-    //         },
-    //     },
-    //     // Add responsive settings
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    // };
-
     const chartOptions = {
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        return context.dataset.label + ': $' + context.formattedValue;
-                    },
-                },
-            },
-        },
         scales: {
             x: {
                 grid: {
@@ -263,9 +221,6 @@ export default function HomeStats() {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 1,
-                    callback: function (value) {
-                        return "$" + value;
-                    },
                 },
             },
             revenue: {
@@ -275,7 +230,7 @@ export default function HomeStats() {
                     display: false,
                 },
                 ticks: {
-                    callback: function (value) {
+                    callback: function (value, index, values) {
                         return "$" + value;
                     },
                 },
@@ -284,7 +239,7 @@ export default function HomeStats() {
         // Add responsive settings
         responsive: true,
         maintainAspectRatio: false,
-    };  
+    };
 
     return (
         <div>
@@ -328,6 +283,7 @@ export default function HomeStats() {
             <div className="chart-container">
                 <div className="chart-wrapper">
                     <Bar data={chartData} options={chartOptions} />
+                    <Line data={chartData} options={chartOptions} />
                 </div>
             </div>
         </div>
