@@ -278,12 +278,12 @@ export default function HomeStats() {
                     <div className="tile-desc">{ordersMonth.length} orders this month</div>
                 </div>
             </div>
-            {/* <h2>Overview</h2>
+            <h2>Overview</h2>
             <div className="chart-container">
                 <div className="chart-wrapper">
                     <Bar data={chartData} options={chartOptions} />
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }
