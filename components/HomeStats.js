@@ -190,6 +190,25 @@ export default function HomeStats() {
     ];
     
     // Replace the dynamic data with static data for testing
+    // const chartData = {
+    //     labels: staticOrdersByDay.map(entry => entry.date.getDate()),
+    //     datasets: [
+    //         {
+    //             label: "Revenue",
+    //             data: staticOrdersRevenueByDay.map(entry => parseFloat(entry.revenue)),
+    //             borderColor: "rgba(255, 99, 132, 1)",
+    //             backgroundColor: "rgba(255, 99, 132, 0.6)",
+    //             type: "line",
+    //             yAxisID: "revenue",
+    //         },
+    //         {
+    //             label: "Number of Orders",
+    //             data: staticOrdersByDay.map(entry => entry.count),
+    //             backgroundColor: "rgba(75, 192, 192, 0.6)",
+    //         },
+    //     ],
+    // };
+
     const chartData = {
         labels: staticOrdersByDay.map(entry => entry.date.getDate()),
         datasets: [
@@ -198,16 +217,18 @@ export default function HomeStats() {
                 data: staticOrdersRevenueByDay.map(entry => parseFloat(entry.revenue)),
                 borderColor: "rgba(255, 99, 132, 1)",
                 backgroundColor: "rgba(255, 99, 132, 0.6)",
-                type: "bar",
+                fill: false, // Add this line to prevent filling area under the line
                 yAxisID: "revenue",
+                type: "line"
             },
             {
                 label: "Number of Orders",
                 data: staticOrdersByDay.map(entry => entry.count),
                 backgroundColor: "rgba(75, 192, 192, 0.6)",
+                type: "bar", // Specify the type as bar for the bar chart
             },
         ],
-    };
+    };  
     
     const chartOptions = {
         scales: {
