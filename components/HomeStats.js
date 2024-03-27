@@ -99,12 +99,34 @@ export default function HomeStats() {
         };
     });
 
+    // const chartData = {
+    //     labels: ordersByDay.map((entry) => entry.date.getDate()),
+    //     datasets: [
+    //         {
+    //             label: "Revenue",
+    //             data: ordersRevenueByDay.map((entry) => entry.revenue),
+    //             borderColor: "rgba(255, 99, 132, 1)",
+    //             backgroundColor: "rgba(255, 99, 132, 0.6)",
+    //             type: "line",
+    //             yAxisID: "revenue",
+    //         },
+    //         {
+    //             label: "Number of Orders",
+    //             data: ordersByDay.map((entry) => entry.count),
+    //             backgroundColor: "rgba(75, 192, 192, 0.6)",
+    //         },
+    //     ],
+    // };
+
+    const getDates = (data) => data.map((entry) => entry.date.getDate());
+    const getValues = (data, key) => data.map((entry) => entry[key]);
+
     const chartData = {
-        labels: ordersByDay.map((entry) => entry.date.getDate()),
+        labels: getDates(ordersByDay),
         datasets: [
             {
                 label: "Revenue",
-                data: ordersRevenueByDay.map((entry) => entry.revenue),
+                data: getValues(ordersRevenueByDay, 'revenue'),
                 borderColor: "rgba(255, 99, 132, 1)",
                 backgroundColor: "rgba(255, 99, 132, 0.6)",
                 type: "line",
@@ -112,7 +134,7 @@ export default function HomeStats() {
             },
             {
                 label: "Number of Orders",
-                data: ordersByDay.map((entry) => entry.count),
+                data: getValues(ordersByDay, 'count'),
                 backgroundColor: "rgba(75, 192, 192, 0.6)",
             },
         ],
